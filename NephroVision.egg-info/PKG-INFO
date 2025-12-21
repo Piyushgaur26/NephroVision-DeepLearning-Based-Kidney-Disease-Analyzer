@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: NephroVision
+Version: 0.0.1
+Summary: Deep learning based kidney disease classification system
+Home-page: https://github.com/your-username/NephroVision
+Author: Piyush Gaur
+Author-email: piyushgaur934@gmail.com
+Project-URL: Bug Tracker, https://github.com/your-username/NephroVision/issues
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: summary
+
+## NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer

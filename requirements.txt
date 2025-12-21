@@ -1,0 +1,32 @@
+# Core ML
+tensorflow
+numpy
+scipy
+pandas
+joblib
+
+# Visualization
+matplotlib
+seaborn
+
+# Experiment tracking & pipelines
+mlflow
+dvc
+gdown
+
+# Utilities
+python-box
+PyYAML
+types-PyYAML
+tqdm
+ensure
+
+# Notebooks
+notebook
+
+# Web
+Flask
+Flask-Cors
+
+# Local package
+-e .

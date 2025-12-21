@@ -1,0 +1,7 @@
+# Conda / virtual environments
+env/
+venv/
+.venv/
+kidney/
+__pycache__/
+*.pyc
