@@ -20,3 +20,996 @@ x==========x]
 [2025-12-31 00:10:17,514: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
 
 x==========x]
+[2025-12-31 16:36:53,375: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 16:36:53,405: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 16:36:54,825: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 16:36:56,081: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 16:36:56,085: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 16:36:56,086: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 16:36:56,113: INFO: main: *******************]
+[2025-12-31 16:36:56,114: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 16:36:56,147: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:36:56,152: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:36:56,153: INFO: common: created directory at: artifacts]
+[2025-12-31 16:36:56,154: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 16:36:56,156: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 16:37:05,183: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 16:37:05,991: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 16:37:05,991: INFO: main: *******************]
+[2025-12-31 16:37:05,991: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 16:37:05,994: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:37:05,996: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:37:05,996: INFO: common: created directory at: artifacts]
+[2025-12-31 16:37:05,997: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 16:37:06,539: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 16:37:06,710: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 16:37:06,874: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 16:37:06,874: INFO: main: *******************]
+[2025-12-31 16:37:06,874: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 16:37:06,876: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:37:06,878: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:37:06,879: INFO: common: created directory at: artifacts]
+[2025-12-31 16:37:06,880: INFO: common: created directory at: artifacts\training]
+[2025-12-31 16:37:07,135: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-31 16:37:08,656: ERROR: main: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.]
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage03_model_training.py", line 18, in main
+    training.train()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_training.py", line 66, in train
+    self.model.fit(
+    ~~~~~~~~~~~~~~^
+        self.train_generator,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        validation_data=self.valid_generator,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 408, in _check_variables_are_known
+    raise ValueError(
+    ...<4 lines>...
+    )
+ValueError: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.
+[2025-12-31 16:44:13,765: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 16:44:13,773: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 16:44:15,209: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 16:44:16,475: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 16:44:16,479: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 16:44:16,480: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 16:44:16,483: INFO: main: *******************]
+[2025-12-31 16:44:16,494: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 16:44:16,514: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:44:16,527: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:44:16,528: INFO: common: created directory at: artifacts]
+[2025-12-31 16:44:16,528: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 16:44:16,529: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 16:44:25,403: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 16:44:26,096: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 16:44:26,096: INFO: main: *******************]
+[2025-12-31 16:44:26,096: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 16:44:26,099: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:44:26,100: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:44:26,101: INFO: common: created directory at: artifacts]
+[2025-12-31 16:44:26,102: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 16:44:26,503: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 16:44:26,697: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 16:44:26,844: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 16:44:26,844: INFO: main: *******************]
+[2025-12-31 16:44:26,844: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 16:44:26,846: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:44:26,847: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:44:26,848: INFO: common: created directory at: artifacts]
+[2025-12-31 16:44:26,848: INFO: common: created directory at: artifacts\training]
+[2025-12-31 16:44:27,100: ERROR: main: 'TrainingConfig' object has no attribute 'params_learning_rate']
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage03_model_training.py", line 18, in main
+    training.train()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_training.py", line 70, in train
+    learning_rate=self.config.params_learning_rate
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TrainingConfig' object has no attribute 'params_learning_rate'
+[2025-12-31 16:54:05,045: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 16:54:05,052: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 16:54:06,439: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 16:54:07,689: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 16:54:07,692: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 16:54:07,695: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 16:54:07,697: INFO: main: *******************]
+[2025-12-31 16:54:07,697: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 16:54:07,712: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:54:07,715: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:54:07,718: INFO: common: created directory at: artifacts]
+[2025-12-31 16:54:07,719: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 16:54:07,719: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 16:54:16,031: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 16:54:16,742: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 16:54:16,742: INFO: main: *******************]
+[2025-12-31 16:54:16,742: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 16:54:16,744: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:54:16,745: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:54:16,746: INFO: common: created directory at: artifacts]
+[2025-12-31 16:54:16,746: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 16:54:17,143: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 16:54:17,339: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 16:54:17,487: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 16:54:17,487: INFO: main: *******************]
+[2025-12-31 16:54:17,488: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 16:54:17,490: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 16:54:17,492: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 16:54:17,492: INFO: common: created directory at: artifacts]
+[2025-12-31 16:54:17,493: INFO: common: created directory at: artifacts\training]
+[2025-12-31 16:54:17,692: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-31 16:54:19,020: ERROR: main: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.]
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage03_model_training.py", line 18, in main
+    training.train()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_training.py", line 69, in train
+    self.model.fit(
+    ~~~~~~~~~~~~~~^
+        self.train_generator,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        validation_data=self.valid_generator,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 408, in _check_variables_are_known
+    raise ValueError(
+    ...<4 lines>...
+    )
+ValueError: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.
+[2025-12-31 17:07:26,621: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:07:26,625: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 17:07:27,966: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 17:07:29,157: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:07:29,160: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 17:07:29,161: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 17:07:29,164: INFO: main: *******************]
+[2025-12-31 17:07:29,164: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 17:07:29,173: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:07:29,176: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:07:29,178: INFO: common: created directory at: artifacts]
+[2025-12-31 17:07:29,179: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 17:07:29,180: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:07:38,377: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:07:39,220: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 17:07:39,220: INFO: main: *******************]
+[2025-12-31 17:07:39,220: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 17:07:39,222: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:07:39,224: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:07:39,225: INFO: common: created directory at: artifacts]
+[2025-12-31 17:07:39,226: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 17:07:39,627: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 17:07:39,789: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 17:07:39,961: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 17:07:39,962: INFO: main: *******************]
+[2025-12-31 17:07:39,962: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 17:07:39,965: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:07:39,967: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:07:39,967: INFO: common: created directory at: artifacts]
+[2025-12-31 17:07:39,968: INFO: common: created directory at: artifacts\training]
+[2025-12-31 17:07:40,189: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-31 17:07:41,469: ERROR: main: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.]
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage03_model_training.py", line 18, in main
+    training.train()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_training.py", line 66, in train
+    self.model.fit(
+    ~~~~~~~~~~~~~~^
+        self.train_generator,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        validation_data=self.valid_generator,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 408, in _check_variables_are_known
+    raise ValueError(
+    ...<4 lines>...
+    )
+ValueError: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.
+[2025-12-31 17:19:05,240: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:19:05,245: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 17:19:06,544: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 17:19:07,725: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:19:07,727: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 17:19:07,728: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 17:19:07,730: INFO: main: *******************]
+[2025-12-31 17:19:07,730: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 17:19:07,737: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:19:07,739: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:19:07,740: INFO: common: created directory at: artifacts]
+[2025-12-31 17:19:07,740: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 17:19:07,741: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:19:15,873: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:19:16,556: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 17:19:16,556: INFO: main: *******************]
+[2025-12-31 17:19:16,556: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 17:19:16,558: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:19:16,559: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:19:16,560: INFO: common: created directory at: artifacts]
+[2025-12-31 17:19:16,560: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 17:19:16,975: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 17:19:17,195: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 17:19:17,334: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 17:19:17,335: INFO: main: *******************]
+[2025-12-31 17:19:17,335: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 17:19:17,337: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:19:17,338: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:19:17,339: INFO: common: created directory at: artifacts]
+[2025-12-31 17:19:17,339: INFO: common: created directory at: artifacts\training]
+[2025-12-31 17:19:17,519: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-31 17:19:18,805: ERROR: main: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.]
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage03_model_training.py", line 18, in main
+    training.train()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_training.py", line 66, in train
+    self.model.fit(
+    ~~~~~~~~~~~~~~^
+        self.train_generator,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        validation_data=self.valid_generator,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 408, in _check_variables_are_known
+    raise ValueError(
+    ...<4 lines>...
+    )
+ValueError: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.
+[2025-12-31 17:24:39,753: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:24:39,758: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 17:24:41,023: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 17:24:42,205: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:24:42,208: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 17:24:42,208: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 17:24:42,235: INFO: main: *******************]
+[2025-12-31 17:24:42,236: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 17:24:42,241: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:24:42,243: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:24:42,244: INFO: common: created directory at: artifacts]
+[2025-12-31 17:24:42,245: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 17:24:42,245: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:24:50,250: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:24:51,053: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 17:24:51,053: INFO: main: *******************]
+[2025-12-31 17:24:51,053: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 17:24:51,055: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:24:51,057: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:24:51,058: INFO: common: created directory at: artifacts]
+[2025-12-31 17:24:51,058: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 17:24:51,479: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 17:24:51,660: ERROR: main: module 'keras.optimizers' has no attribute 'adam']
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage02_prepare_base_model.py", line 17, in main
+    prepare_base_model.update_base_model()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\prepare_base_model.py", line 45, in update_base_model
+    self.full_model = self._prepare_full_model(
+                      ~~~~~~~~~~~~~~~~~~~~~~~~^
+        model=self.model,
+        ^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        learning_rate=self.config.params_learning_rate,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\prepare_base_model.py", line 36, in _prepare_full_model
+    optimizer=tf.keras.optimizers.adam(learning_rate=learning_rate),
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'keras.optimizers' has no attribute 'adam'. Did you mean: 'Adam'?
+[2025-12-31 17:26:02,882: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:26:02,886: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 17:26:04,148: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 17:26:05,365: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:26:05,367: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 17:26:05,367: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 17:26:05,373: INFO: main: *******************]
+[2025-12-31 17:26:05,374: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 17:26:05,382: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:26:05,384: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:26:05,384: INFO: common: created directory at: artifacts]
+[2025-12-31 17:26:05,385: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 17:26:05,385: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:26:13,512: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:26:14,189: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 17:26:14,189: INFO: main: *******************]
+[2025-12-31 17:26:14,189: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 17:26:14,191: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:26:14,192: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:26:14,193: INFO: common: created directory at: artifacts]
+[2025-12-31 17:26:14,193: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 17:26:14,557: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 17:26:14,771: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-12-31 17:26:14,998: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 17:26:14,998: INFO: main: *******************]
+[2025-12-31 17:26:14,998: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 17:26:15,000: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:26:15,001: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:26:15,002: INFO: common: created directory at: artifacts]
+[2025-12-31 17:26:15,003: INFO: common: created directory at: artifacts\training]
+[2025-12-31 17:26:15,230: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-31 17:26:16,533: ERROR: main: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.]
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage03_model_training.py", line 18, in main
+    training.train()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_training.py", line 66, in train
+    self.model.fit(
+    ~~~~~~~~~~~~~~^
+        self.train_generator,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        validation_data=self.valid_generator,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 408, in _check_variables_are_known
+    raise ValueError(
+    ...<4 lines>...
+    )
+ValueError: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.
+[2025-12-31 17:51:09,031: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:51:09,036: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 17:51:10,359: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 17:51:11,610: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:51:11,612: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 17:51:11,614: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 17:52:48,009: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:52:48,014: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 17:52:49,341: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 17:52:50,612: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 17:52:50,614: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 17:52:50,616: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 17:52:50,618: INFO: main: *******************]
+[2025-12-31 17:52:50,618: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 17:52:50,626: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:52:50,628: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:52:50,630: INFO: common: created directory at: artifacts]
+[2025-12-31 17:52:50,631: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 17:52:50,632: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:52:58,596: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 17:52:59,455: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 17:52:59,455: INFO: main: *******************]
+[2025-12-31 17:52:59,456: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 17:52:59,458: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 17:52:59,460: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 17:52:59,460: INFO: common: created directory at: artifacts]
+[2025-12-31 17:52:59,461: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 17:53:00,678: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 17:53:00,678: INFO: main: *******************]
+[2025-12-31 17:53:00,678: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 17:53:00,679: ERROR: main: ModelTrainingPipeline.__init__() missing 1 required positional argument: 'full_model']
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 14, in run_stage
+    pipeline = pipeline_class()
+TypeError: ModelTrainingPipeline.__init__() missing 1 required positional argument: 'full_model'
+[2025-12-31 18:05:28,232: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:05:28,237: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 18:05:29,571: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 18:05:30,768: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:05:30,770: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 18:05:30,771: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 18:05:30,794: INFO: main: *******************]
+[2025-12-31 18:05:30,795: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 18:05:30,801: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:05:30,803: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:05:30,804: INFO: common: created directory at: artifacts]
+[2025-12-31 18:05:30,804: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 18:05:30,804: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:05:38,873: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:05:39,578: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:05:39,579: INFO: main: *******************]
+[2025-12-31 18:05:39,579: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 18:05:39,581: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:05:39,582: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:05:39,583: INFO: common: created directory at: artifacts]
+[2025-12-31 18:05:39,583: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:05:40,750: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 18:05:40,752: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:05:40,753: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:05:40,754: INFO: common: created directory at: artifacts]
+[2025-12-31 18:05:40,755: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:05:41,692: INFO: main: *******************]
+[2025-12-31 18:05:41,692: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 18:05:41,692: ERROR: main: ModelTrainingPipeline.__init__() missing 1 required positional argument: 'full_model']
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 14, in run_stage
+    pipeline = pipeline_class()
+TypeError: ModelTrainingPipeline.__init__() missing 1 required positional argument: 'full_model'
+[2025-12-31 18:07:39,111: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:07:39,115: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 18:07:40,441: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 18:07:41,749: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:07:41,751: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 18:07:41,753: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 18:07:41,756: INFO: main: *******************]
+[2025-12-31 18:07:41,756: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 18:07:41,764: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:07:41,767: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:07:41,769: INFO: common: created directory at: artifacts]
+[2025-12-31 18:07:41,770: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 18:07:41,770: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:07:50,445: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:07:51,111: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:07:51,111: INFO: main: *******************]
+[2025-12-31 18:07:51,111: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 18:07:51,113: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:07:51,114: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:07:51,115: INFO: common: created directory at: artifacts]
+[2025-12-31 18:07:51,115: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:07:52,252: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 18:07:52,254: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:07:52,255: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:07:52,256: INFO: common: created directory at: artifacts]
+[2025-12-31 18:07:52,256: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:07:53,238: INFO: main: *******************]
+[2025-12-31 18:07:53,238: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 18:07:53,240: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:07:53,242: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:07:53,243: INFO: common: created directory at: artifacts]
+[2025-12-31 18:07:53,244: INFO: common: created directory at: artifacts\training]
+[2025-12-31 18:08:24,697: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-31 18:08:24,697: INFO: main: *******************]
+[2025-12-31 18:08:24,697: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-31 18:08:24,699: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:08:24,701: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:08:24,701: INFO: common: created directory at: artifacts]
+[2025-12-31 18:08:24,703: ERROR: main: [Errno 2] Unable to synchronously open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)]
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage04_model_evaluation.py", line 16, in main
+    evaluation.evaluation()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_evaluation.py", line 48, in evaluation
+    self.model = self.load_model(self.config.path_of_model)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_evaluation.py", line 45, in load_model
+    return tf.keras.models.load_model(path)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        filepath,
+        ^^^^^^^^^
+    ...<2 lines>...
+        safe_mode=safe_mode,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 118, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\h5py\_hl\files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\h5py\_hl\files.py", line 241, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 104, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2025-12-31 18:17:37,633: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:17:37,638: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 18:17:38,910: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 18:17:40,090: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:17:40,092: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 18:17:40,094: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 18:17:40,096: INFO: main: *******************]
+[2025-12-31 18:17:40,096: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 18:17:40,104: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:17:40,106: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:17:40,107: INFO: common: created directory at: artifacts]
+[2025-12-31 18:17:40,108: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 18:17:40,109: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:17:48,477: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:17:49,167: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:17:49,167: INFO: main: *******************]
+[2025-12-31 18:17:49,168: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 18:17:49,170: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:17:49,171: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:17:49,172: INFO: common: created directory at: artifacts]
+[2025-12-31 18:17:49,173: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:17:50,388: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 18:17:50,390: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:17:50,391: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:17:50,392: INFO: common: created directory at: artifacts]
+[2025-12-31 18:17:50,393: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:17:51,304: INFO: main: *******************]
+[2025-12-31 18:17:51,305: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 18:17:51,306: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:17:51,308: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:17:51,308: INFO: common: created directory at: artifacts]
+[2025-12-31 18:17:51,309: INFO: common: created directory at: artifacts\training]
+[2025-12-31 18:18:22,109: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-31 18:18:22,110: INFO: main: *******************]
+[2025-12-31 18:18:22,110: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-31 18:18:22,112: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:18:22,113: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:18:22,114: INFO: common: created directory at: artifacts]
+[2025-12-31 18:18:22,114: ERROR: main: [Errno 2] Unable to synchronously open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)]
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage04_model_evaluation.py", line 16, in main
+    evaluation.evaluation()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_evaluation.py", line 48, in evaluation
+    self.model = self.load_model(self.config.path_of_model)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_evaluation.py", line 45, in load_model
+    return tf.keras.models.load_model(path)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        filepath,
+        ^^^^^^^^^
+    ...<2 lines>...
+        safe_mode=safe_mode,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 118, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\h5py\_hl\files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\h5py\_hl\files.py", line 241, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 104, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2025-12-31 18:21:31,117: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:21:31,122: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 18:21:32,468: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 18:21:33,383: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:21:33,386: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 18:21:33,387: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 18:21:33,389: INFO: main: *******************]
+[2025-12-31 18:21:33,389: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 18:21:33,416: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:21:33,417: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:21:33,418: INFO: common: created directory at: artifacts]
+[2025-12-31 18:21:33,419: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 18:21:33,419: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:21:41,992: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:21:42,664: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:21:42,665: INFO: main: *******************]
+[2025-12-31 18:21:42,665: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 18:21:42,666: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:21:42,668: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:21:42,668: INFO: common: created directory at: artifacts]
+[2025-12-31 18:21:42,668: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:21:43,633: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 18:21:43,635: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:21:43,636: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:21:43,637: INFO: common: created directory at: artifacts]
+[2025-12-31 18:21:43,637: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:21:44,507: INFO: main: *******************]
+[2025-12-31 18:21:44,507: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 18:21:44,509: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:21:44,510: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:21:44,510: INFO: common: created directory at: artifacts]
+[2025-12-31 18:21:44,511: INFO: common: created directory at: artifacts\training]
+[2025-12-31 18:22:14,684: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-31 18:22:14,684: INFO: main: *******************]
+[2025-12-31 18:22:14,685: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-31 18:22:14,687: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:22:14,688: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:22:14,689: INFO: common: created directory at: artifacts]
+[2025-12-31 18:22:14,690: ERROR: main: [Errno 2] Unable to synchronously open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)]
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\main.py", line 15, in run_stage
+    pipeline.main()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage04_model_evaluation.py", line 16, in main
+    evaluation.evaluation()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_evaluation.py", line 48, in evaluation
+    self.model = self.load_model(self.config.path_of_model)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_evaluation.py", line 45, in load_model
+    return tf.keras.models.load_model(path)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        filepath,
+        ^^^^^^^^^
+    ...<2 lines>...
+        safe_mode=safe_mode,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 118, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\h5py\_hl\files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+  File "C:\Users\piyus\AppData\Local\Programs\Python\Python313\Lib\site-packages\h5py\_hl\files.py", line 241, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 104, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2025-12-31 18:24:15,761: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:24:15,788: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 18:24:17,108: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 18:24:18,370: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:24:18,372: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 18:24:18,373: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 18:24:18,375: INFO: main: *******************]
+[2025-12-31 18:24:18,375: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 18:24:18,383: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:24:18,385: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:24:18,386: INFO: common: created directory at: artifacts]
+[2025-12-31 18:24:18,387: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 18:24:18,389: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:24:26,511: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:24:27,216: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:24:27,217: INFO: main: *******************]
+[2025-12-31 18:24:27,217: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 18:24:27,218: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:24:27,220: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:24:27,220: INFO: common: created directory at: artifacts]
+[2025-12-31 18:24:27,221: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:24:28,176: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 18:24:28,177: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:24:28,179: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:24:28,179: INFO: common: created directory at: artifacts]
+[2025-12-31 18:24:28,180: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:24:29,007: INFO: main: *******************]
+[2025-12-31 18:24:29,007: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 18:24:29,009: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:24:29,011: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:24:29,012: INFO: common: created directory at: artifacts]
+[2025-12-31 18:24:29,012: INFO: common: created directory at: artifacts\training]
+[2025-12-31 18:24:58,742: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-31 18:24:58,742: INFO: main: *******************]
+[2025-12-31 18:24:58,742: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-31 18:24:58,744: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:24:58,745: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:24:58,746: INFO: common: created directory at: artifacts]
+[2025-12-31 18:25:07,554: INFO: common: json file saved at: scores.json]
+[2025-12-31 18:25:07,556: INFO: common: json file saved at: scores.json]
+[2025-12-31 18:25:07,556: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:37:00,703: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:37:00,708: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 18:37:02,019: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 18:37:03,306: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:37:03,308: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 18:37:03,309: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 18:37:03,311: INFO: main: *******************]
+[2025-12-31 18:37:03,312: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 18:37:03,319: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:37:03,322: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:37:03,323: INFO: common: created directory at: artifacts]
+[2025-12-31 18:37:03,323: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 18:37:03,324: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:37:12,387: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:37:13,115: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:37:13,115: INFO: main: *******************]
+[2025-12-31 18:37:13,115: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 18:37:13,118: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:37:13,120: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:37:13,120: INFO: common: created directory at: artifacts]
+[2025-12-31 18:37:13,121: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:37:14,310: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 18:37:14,313: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:37:14,314: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:37:14,315: INFO: common: created directory at: artifacts]
+[2025-12-31 18:37:14,316: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:37:15,251: INFO: main: *******************]
+[2025-12-31 18:37:15,251: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 18:37:15,253: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:37:15,254: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:37:15,255: INFO: common: created directory at: artifacts]
+[2025-12-31 18:37:15,255: INFO: common: created directory at: artifacts\training]
+[2025-12-31 18:37:46,664: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-31 18:37:46,664: INFO: main: *******************]
+[2025-12-31 18:37:46,664: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-31 18:37:46,666: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:37:46,667: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:37:46,668: INFO: common: created directory at: artifacts]
+[2025-12-31 18:37:55,910: INFO: common: json file saved at: scores.json]
+[2025-12-31 18:37:55,912: INFO: common: json file saved at: scores.json]
+[2025-12-31 18:37:55,912: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:41:25,647: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:41:25,654: INFO: helpers: Accessing as Piyushgaur26]
+[2025-12-31 18:41:26,949: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2025-12-31 18:41:28,197: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-12-31 18:41:28,200: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2025-12-31 18:41:28,202: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2025-12-31 18:41:28,204: INFO: main: *******************]
+[2025-12-31 18:41:28,204: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-31 18:41:28,215: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:41:28,219: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:41:28,221: INFO: common: created directory at: artifacts]
+[2025-12-31 18:41:28,222: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-31 18:41:28,222: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:41:36,974: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-12-31 18:41:37,681: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-31 18:41:37,681: INFO: main: *******************]
+[2025-12-31 18:41:37,681: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-12-31 18:41:37,683: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:41:37,684: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:41:37,685: INFO: common: created directory at: artifacts]
+[2025-12-31 18:41:37,685: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:41:38,652: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-12-31 18:41:38,654: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:41:38,655: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:41:38,656: INFO: common: created directory at: artifacts]
+[2025-12-31 18:41:38,656: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-31 18:41:39,483: INFO: main: *******************]
+[2025-12-31 18:41:39,483: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-31 18:41:39,484: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:41:39,486: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:41:39,486: INFO: common: created directory at: artifacts]
+[2025-12-31 18:41:39,487: INFO: common: created directory at: artifacts\training]
+[2025-12-31 18:42:10,395: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-31 18:42:10,395: INFO: main: *******************]
+[2025-12-31 18:42:10,395: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-31 18:42:10,397: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-31 18:42:10,399: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-31 18:42:10,399: INFO: common: created directory at: artifacts]
+[2025-12-31 18:42:19,485: INFO: common: json file saved at: scores.json]
+[2025-12-31 18:42:19,510: INFO: model_evaluation: MLflow Tracking URI set to: https://dagshub.com/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer.mlflow]
+[2025-12-31 18:42:21,317: INFO: model_evaluation: MLflow Run started with run_id: 601e43c4f18b477a8efc4af8e352fe1e]
+[2025-12-31 18:43:11,469: INFO: common: json file saved at: scores.json]
+[2025-12-31 18:43:11,470: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2026-01-04 16:49:46,802: INFO: stage01_data_ingestion: >>>>>> Data Ingestion stage started <<<<<<]
+[2026-01-04 16:49:46,805: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-04 16:49:46,832: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-04 16:49:46,834: INFO: common: created directory at: artifacts]
+[2026-01-04 16:49:46,835: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-04 16:49:46,835: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-01-04 16:49:55,511: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-01-04 16:49:56,413: INFO: stage01_data_ingestion: >>>>>> Data Ingestion stage completed <<<<<<]
+[2026-01-04 16:50:27,042: INFO: stage02_prepare_base_model: >>>>>> Prepare Base Model stage started <<<<<<]
+[2026-01-04 16:50:27,044: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-04 16:50:27,046: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-04 16:50:27,046: INFO: common: created directory at: artifacts]
+[2026-01-04 16:50:27,047: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-01-04 16:50:28,247: ERROR: stage02_prepare_base_model: 'NoneType' object has no attribute 'save']
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage02_prepare_base_model.py", line 31, in <module>
+    obj.main()
+    ~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage02_prepare_base_model.py", line 21, in main
+    prepare_base_model.update_base_model()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\prepare_base_model.py", line 36, in update_base_model
+    self.save_model(path=self.config.updated_base_model_path, model=self.full_model)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\prepare_base_model.py", line 15, in save_model
+    model.save(path.with_suffix(".keras"))  # native Keras format
+    ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'save'
+[2026-01-04 16:53:05,518: INFO: stage02_prepare_base_model: >>>>>> Prepare Base Model stage started <<<<<<]
+[2026-01-04 16:53:05,520: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-04 16:53:05,521: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-04 16:53:05,522: INFO: common: created directory at: artifacts]
+[2026-01-04 16:53:05,522: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-01-04 16:53:06,540: ERROR: stage02_prepare_base_model: 'NoneType' object has no attribute 'save']
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage02_prepare_base_model.py", line 32, in <module>
+    obj.main()
+    ~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage02_prepare_base_model.py", line 21, in main
+    prepare_base_model.update_base_model()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\prepare_base_model.py", line 36, in update_base_model
+    self.save_model(path=self.config.updated_base_model_path, model=self.full_model)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\prepare_base_model.py", line 15, in save_model
+    model.save(path.with_suffix(".keras"))  # native Keras format
+    ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'save'
+[2026-01-04 17:16:04,905: INFO: stage02_prepare_base_model: >>>>>> Prepare Base Model stage started <<<<<<]
+[2026-01-04 17:16:04,908: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-04 17:16:04,910: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-04 17:16:04,910: INFO: common: created directory at: artifacts]
+[2026-01-04 17:16:04,911: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-01-04 17:16:06,390: INFO: stage02_prepare_base_model: >>>>>> Prepare Base Model stage completed <<<<<<]
+[2026-01-04 17:19:55,659: INFO: stage03_model_training: >>>>>> Training stage started <<<<<<]
+[2026-01-04 17:19:55,661: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-04 17:19:55,662: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-04 17:19:55,663: INFO: common: created directory at: artifacts]
+[2026-01-04 17:19:55,664: INFO: common: created directory at: artifacts\training]
+[2026-01-04 17:19:56,160: ERROR: stage03_model_training: 'TrainingConfig' object has no attribute 'params_learning_rate']
+Traceback (most recent call last):
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage03_model_training.py", line 36, in <module>
+    obj.main()
+    ~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\pipeline\stage03_model_training.py", line 22, in main
+    training.load_model()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\piyus\Documents\Data Science\1. Projects\Kidney Disease Classification\NephroVision\components\model_training.py", line 21, in load_model
+    learning_rate=self.config.params_learning_rate
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TrainingConfig' object has no attribute 'params_learning_rate'
+[2026-01-04 17:57:44,614: INFO: stage03_model_training: >>>>>> Training stage started <<<<<<]
+[2026-01-04 17:57:44,617: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-04 17:57:44,619: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-04 17:57:44,620: INFO: common: created directory at: artifacts]
+[2026-01-04 17:57:44,620: INFO: common: created directory at: artifacts\training]
+[2026-01-04 17:58:15,386: INFO: stage03_model_training: >>>>>> Training stage completed <<<<<<]
+[2026-01-04 17:58:26,003: INFO: tokens: Removed expired tokens from the token cache]
+[2026-01-12 02:34:49,642: INFO: _client: HTTP Request: POST https://dagshub.com/login/oauth/middleman "HTTP/1.1 200 OK"]
+[2026-01-12 02:34:50,901: INFO: _client: HTTP Request: POST https://dagshub.com/login/oauth/access_token "HTTP/1.1 200 OK"]
+[2026-01-12 02:34:52,133: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-01-12 02:34:52,149: INFO: helpers: Accessing as Piyushgaur26]
+[2026-01-12 02:34:53,395: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2026-01-12 02:34:54,656: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-01-12 02:34:54,659: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2026-01-12 02:34:54,660: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2026-01-12 02:35:26,537: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-01-12 02:35:26,544: INFO: helpers: Accessing as Piyushgaur26]
+[2026-01-12 02:35:27,409: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2026-01-12 02:35:28,624: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-01-12 02:35:28,627: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2026-01-12 02:35:28,629: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2026-01-12 02:39:32,883: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-01-12 02:39:32,891: INFO: helpers: Accessing as Piyushgaur26]
+[2026-01-12 02:39:34,255: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2026-01-12 02:39:35,518: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-01-12 02:39:35,521: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2026-01-12 02:39:35,522: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2026-01-12 02:39:35,522: INFO: stage04_model_evaluation: >>>>>> Evaluation stage stage started <<<<<<]
+[2026-01-12 02:39:35,548: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-12 02:39:35,554: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-12 02:39:35,557: INFO: common: created directory at: artifacts]
+[2026-01-12 02:39:45,860: INFO: common: json file saved at: scores.json]
+[2026-01-12 02:39:45,934: INFO: model_evaluation: MLflow Tracking URI set to: https://dagshub.com/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer.mlflow]
+[2026-01-12 02:39:47,794: INFO: model_evaluation: MLflow Run started with run_id: fc8d99f8a0104ee5983381601c1d58de]
+[2026-01-12 02:40:43,795: INFO: common: json file saved at: scores.json]
+[2026-01-12 02:40:43,795: INFO: stage04_model_evaluation: >>>>>> Evaluation stage stage completed <<<<<<]
+[2026-01-12 03:28:33,435: INFO: stage01_data_ingestion: >>>>>> Data Ingestion stage started <<<<<<]
+[2026-01-12 03:28:33,437: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-12 03:28:33,439: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-12 03:28:33,440: INFO: common: created directory at: artifacts]
+[2026-01-12 03:28:33,441: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-12 03:28:33,441: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-01-12 03:28:42,567: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-01-12 03:28:43,576: INFO: stage01_data_ingestion: >>>>>> Data Ingestion stage completed <<<<<<]
+[2026-01-12 03:28:57,313: INFO: stage02_prepare_base_model: >>>>>> Prepare Base Model stage started <<<<<<]
+[2026-01-12 03:28:57,315: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-12 03:28:57,317: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-12 03:28:57,317: INFO: common: created directory at: artifacts]
+[2026-01-12 03:28:57,318: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-01-12 03:28:58,804: INFO: stage02_prepare_base_model: >>>>>> Prepare Base Model stage completed <<<<<<]
+[2026-01-12 03:29:06,744: INFO: stage03_model_training: >>>>>> Training stage started <<<<<<]
+[2026-01-12 03:29:06,746: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-12 03:29:06,748: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-12 03:29:06,749: INFO: common: created directory at: artifacts]
+[2026-01-12 03:29:06,749: INFO: common: created directory at: artifacts\training]
+[2026-01-12 03:29:36,521: INFO: stage03_model_training: >>>>>> Training stage completed <<<<<<]
+[2026-01-12 03:29:48,043: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-01-12 03:29:48,052: INFO: helpers: Accessing as Piyushgaur26]
+[2026-01-12 03:29:49,314: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer "HTTP/1.1 200 OK"]
+[2026-01-12 03:29:50,510: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-01-12 03:29:50,513: INFO: helpers: Initialized MLflow to track repo "Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer"]
+[2026-01-12 03:29:50,515: INFO: helpers: Repository Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer initialized!]
+[2026-01-12 03:29:50,515: INFO: stage04_model_evaluation: >>>>>> Evaluation stage stage started <<<<<<]
+[2026-01-12 03:29:50,517: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-12 03:29:50,519: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-12 03:29:50,520: INFO: common: created directory at: artifacts]
+[2026-01-12 03:29:59,943: INFO: common: json file saved at: scores.json]
+[2026-01-12 03:29:59,972: INFO: model_evaluation: MLflow Tracking URI set to: https://dagshub.com/Piyushgaur26/NephroVision-DeepLearning-Based-Kidney-Disease-Analyzer.mlflow]
+[2026-01-12 03:30:01,881: INFO: model_evaluation: MLflow Run started with run_id: c549c12fa16f42e38e5db8a889855e8b]
+[2026-01-12 03:30:41,651: INFO: common: json file saved at: scores.json]
+[2026-01-12 03:30:41,652: INFO: stage04_model_evaluation: >>>>>> Evaluation stage stage completed <<<<<<]

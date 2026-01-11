@@ -5,4 +5,4 @@ venv/
 kidney/
 __pycache__/
 *.pyc
-artifacts/*
+artifacts/
