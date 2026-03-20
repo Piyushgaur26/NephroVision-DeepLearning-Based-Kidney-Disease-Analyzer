@@ -1,185 +1,88 @@
-## NephroVision-DeepLearning-MLFLOW-Based-Kidney-Disease-Analyzer
+# Kidney Disease Classification - End-to-End MLOps & Deep Learning
 
+This repository contains an end-to-end deep learning project for classifying kidney CT scan images as either normal or containing a tumor. This project implements robust MLOps practices, integrating modular coding, pipeline tracking with DVC, experiment tracking with MLflow, and automated CI/CD deployment to AWS using GitHub Actions and Docker.
 
+## 📌 Project Overview
+The objective of this project is to build a robust image classification system using a custom VGG16 base model architecture to detect kidney tumors from CT scans. The project emphasizes production-grade architecture, featuring proper logging, exception handling, and CI/CD pipelines. 
 
+## 🛠️ Tech Stack & Tools
+* **Programming Language:** Python 3.8
+* **Deep Learning Framework:** TensorFlow 2.x (Keras)
+* **Web Framework:** Flask
+* **MLOps & Pipeline Tracking:** DVC (Data Version Control)
+* **Experiment Tracking & Model Registry:** MLflow connected via DagsHub
+* **CI/CD & Deployment:** GitHub Actions, Docker, AWS (EC2 & ECR)
 
-## Workflows
-
-1. Update config.yaml
-2. Update secrets.yaml [Optional]
-3. Update params.yaml
+## 🏗️ Project Workflows
+The development of this project strictly adhered to the following step-by-step workflow for each component:
+1. Update `config.yaml`
+2. Update `secrets.yaml` (Optional)
+3. Update `params.yaml`
 4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline 
-8. Update the main.py
-9. Update the dvc.yaml
-10. app.py
+5. Update the configuration manager in `src/config`
+6. Update the components (Data Ingestion, Prepare Base Model, Model Training, Model Evaluation)
+7. Update the pipeline
+8. Update `main.py`
+9. Update `dvc.yaml`
+10. Update `app.py`
 
-# How to run?
-### STEPS:
+## 🚀 How to Run the Project Locally
 
-Clone the repository
-
+**1. Clone the repository**
 ```bash
-https://github.com/krishnaik06/Kidney-Disease-Classification-Deep-Learning-Project
-```
-### STEP 01- Create a conda environment after opening the repository
-
-```bash
-conda create -n cnncls python=3.8 -y
+git clone <your-github-repository-link>
+cd <your-repository-folder>
 ```
 
+**2. Create a conda environment and activate it**
 ```bash
-conda activate cnncls
+conda create -n kidney python=3.8 -y
+conda activate kidney
 ```
 
-
-### STEP 02- install the requirements
+**3. Install requirements**
 ```bash
 pip install -r requirements.txt
 ```
 
+**4. DagsHub & MLflow Setup (Required for Experiment Tracking)**
+You need to set up a DagsHub repository and export your tracking credentials into your environment to log experiments. 
 ```bash
-# Finally run the following command
+export MLFLOW_TRACKING_URI="<your-dagshub-tracking-uri>"
+export MLFLOW_TRACKING_USERNAME="<your-username>"
+export MLFLOW_TRACKING_PASSWORD="<your-password>"
+```
+
+**5. Execute the DVC Pipeline**
+Instead of running standard python scripts, use DVC to execute the entire pipeline (Data Ingestion -> Base Model Prep -> Training -> Evaluation). DVC ensures that unchanged stages are skipped, saving computational power.
+```bash
+dvc repro
+```
+*Note: To visualize your pipeline dependency graph, you can run `dvc dag`.*
+
+**6. Run the Flask Web App**
+```bash
 python app.py
 ```
-
-Now,
-```bash
-open up you local host and port
-```
-
-
-
-
-
-
-## MLflow
-
-- [Documentation](https://mlflow.org/docs/latest/index.html)
-
-- [MLflow tutorial](https://youtu.be/qdcHHrsXA48?si=bD5vDS60akNphkem)
-
-##### cmd
-- mlflow ui
-
-### dagshub
-[dagshub](https://dagshub.com/)
-
-MLFLOW_TRACKING_URI=https://dagshub.com/entbappy/Kidney-Disease-Classification-MLflow-DVC.mlflow \
-MLFLOW_TRACKING_USERNAME=entbappy \
-MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0 \
-python script.py
-
-Run this to export as env variables:
-
-```bash
-
-export MLFLOW_TRACKING_URI=https://dagshub.com/entbappy/Kidney-Disease-Classification-MLflow-DVC.mlflow
-
-export MLFLOW_TRACKING_USERNAME=entbappy 
-
-export MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0
-
-```
-
-
-### DVC cmd
-
-1. dvc init
-2. dvc repro
-3. dvc dag
-
-
-## About MLflow & DVC
-
-MLflow
-
- - Its Production Grade
- - Trace all of your expriements
- - Logging & taging your model
-
-
-DVC 
-
- - Its very lite weight for POC only
- - lite weight expriements tracker
- - It can perform Orchestration (Creating Pipelines)
-
-
-
-# AWS-CICD-Deployment-with-Github-Actions
-
-## 1. Login to AWS console.
-
-## 2. Create IAM user for deployment
-
-	#with specific access
-
-	1. EC2 access : It is virtual machine
-
-	2. ECR: Elastic Container registry to save your docker image in aws
-
-
-	#Description: About the deployment
-
-	1. Build docker image of the source code
-
-	2. Push your docker image to ECR
-
-	3. Launch Your EC2 
-
-	4. Pull Your image from ECR in EC2
-
-	5. Lauch your docker image in EC2
-
-	#Policy:
-
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
-
-	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI: 566373416292.dkr.ecr.us-east-1.amazonaws.com/chicken
-
-	
-## 4. Create EC2 machine (Ubuntu) 
-
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
-
-	sudo apt-get update -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-    AWS_ACCESS_KEY_ID=
-
-    AWS_SECRET_ACCESS_KEY=
-
-    AWS_REGION = us-east-1
-
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-    ECR_REPOSITORY_NAME = simple-app
-
-
+*Navigate to `http://localhost:8080` in your browser to access the web interface and upload CT scan images for prediction.*
+
+## ☁️ AWS CI/CD Deployment Steps
+The project uses GitHub Actions to automate the build and deployment of a Docker container to an AWS EC2 instance.
+
+1. **AWS Setup:**
+   * Create an IAM User with the following policies: `AmazonEC2ContainerRegistryFullAccess` and `AmazonEC2FullAccess`.
+   * Save the Access Key ID and Secret Access Key.
+   * Create an ECR (Elastic Container Registry) repository to store the Docker image.
+   * Launch an Ubuntu EC2 Instance (T2.large recommended for Deep Learning tasks).
+2. **EC2 Configuration:**
+   * SSH into the EC2 machine and install Docker.
+   * Add the EC2 instance as a Self-Hosted Runner in your GitHub Repository settings (Actions -> Runners).
+3. **GitHub Secrets:**
+   Navigate to your repository settings and add the following repository secrets:
+   * `AWS_ACCESS_KEY_ID`
+   * `AWS_SECRET_ACCESS_KEY`
+   * `AWS_REGION` (e.g., ap-south-1)
+   * `AWS_ECR_LOGIN_URI`
+   * `ECR_REPOSITORY_NAME`
+
+Once configured, pushing code to the `main` branch will automatically trigger the CI/CD pipeline, building the Docker image, pushing it to ECR, and pulling/running it on your EC2 instance. Make sure to expose Port 8080 in the EC2 Security Group inbound rules to access the live app.
