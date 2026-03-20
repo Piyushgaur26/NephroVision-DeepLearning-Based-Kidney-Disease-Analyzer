@@ -1,4 +1,4 @@
-# Kidney Disease Classification - End-to-End MLOps & Deep Learning
+# NephroVision Kidney Disease Analyzer - End-to-End MLOps & Deep Learning
 
 This repository contains an end-to-end deep learning project for classifying kidney CT scan images as either normal or containing a tumor. This project implements robust MLOps practices, integrating modular coding, pipeline tracking with DVC, experiment tracking with MLflow, and automated CI/CD deployment to AWS using GitHub Actions and Docker.
 
